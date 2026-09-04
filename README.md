@@ -4,7 +4,13 @@ AUCA Web Technology Course Project built with **Java 8**, **JSF 2.3**, **CDI (We
 
 ---
 
-## 📌 Technology Stack
+## Class Diagram
+
+![Class Diagram: Wedding Plan Management System](docs/class_diagram.png)
+
+---
+
+## Technology Stack
 - **Java Compiler**: JDK 1.8 (Java 8)
 - **Framework**: JavaServer Faces (JSF 2.3 - GlassFish Mojarra)
 - **CDI**: Weld Servlet Shaded (3.1.9.Final)
@@ -14,13 +20,13 @@ AUCA Web Technology Course Project built with **Java 8**, **JSF 2.3**, **CDI (We
 
 ---
 
-## 🏛 Domain Entities & Relationship
+## Domain Entities & Relationship
 - **`User`**: `id` (PK), `name`, `email`, `role` (`BRIDE`, `GROOM`, `FAMILY_MEMBER`), `side` (`BRIDE`, `GROOM`).
 - **`Task`**: `id` (PK), `eventId`, `title`, `deadline`, `status` (`PENDING`, `IN_PROGRESS`, `COMPLETED`), `category`, `assignedUser` (`@ManyToOne` -> `User` FK).
 
 ---
 
-## 🧪 Requirements Coverage
+## Requirements Coverage
 
 ### 1. Three Types of Validation
 - **Type 1 (Bean Validation / JSR-380)**: `@NotBlank`, `@Email`, `@Size`, `@NotNull`, `@FutureOrPresent` in `User.java` and `Task.java`.
@@ -34,7 +40,7 @@ AUCA Web Technology Course Project built with **Java 8**, **JSF 2.3**, **CDI (We
 
 ---
 
-## 🚀 How to Build & Run
+## How to Build & Run
 ```bash
 # Compile and build WAR package targeting Java 8
 mvn clean package
