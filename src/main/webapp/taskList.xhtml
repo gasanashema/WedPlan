@@ -5,11 +5,9 @@
 <h:head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>WedPlan — Task Management</title>
-    <!-- CSS Type #1: External CSS -->
+    <title>WedPlan - Task Management</title>
     <h:outputStylesheet library="css" name="style.css"/>
 
-    <!-- CSS Type #2: Internal CSS -->
     <style>
         .overdue-row {
             background-color: rgba(239, 68, 68, 0.12) !important;
@@ -35,7 +33,7 @@
 
     <nav class="navbar">
         <h:outputLink value="index.xhtml" styleClass="brand">
-            💍 WedPlan
+            WedPlan
         </h:outputLink>
         <div class="nav-links">
             <h:outputLink value="index.xhtml" styleClass="nav-link">Dashboard</h:outputLink>
@@ -50,13 +48,12 @@
 
         <div class="card">
             <div class="card-header">
-                <h1 class="card-title">📋 Wedding Tasks</h1>
+                <h1 class="card-title">Wedding Tasks</h1>
                 <h:form style="display:inline;">
                     <h:commandButton value="+ Create New Task" action="#{taskBean.prepareCreate}" styleClass="btn btn-primary"/>
                 </h:form>
             </div>
 
-            <!-- Search & Filtering Form -->
             <h:form id="taskFilterForm" style="margin-bottom: 1.5rem;">
                 <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
                     <div style="flex: 1; min-width: 200px;">
@@ -98,7 +95,7 @@
                         </h:column>
 
                         <h:column>
-                            <f:facet name="header">Assigned To (FK Relationship)</f:facet>
+                            <f:facet name="header">Assigned To</f:facet>
                             <h:panelGroup rendered="#{t.assignedUser != null}">
                                 <strong>#{t.assignedUser.name}</strong>
                                 <span style="font-size:0.8rem; color:var(--text-muted); margin-left:0.4rem;">
@@ -120,13 +117,13 @@
                         <h:column>
                             <f:facet name="header">Status</f:facet>
                             <h:panelGroup rendered="#{t.status == 'PENDING'}">
-                                <span class="badge badge-pending">⏳ Pending</span>
+                                <span class="badge badge-pending">Pending</span>
                             </h:panelGroup>
                             <h:panelGroup rendered="#{t.status == 'IN_PROGRESS'}">
-                                <span class="badge badge-in_progress">🔄 In Progress</span>
+                                <span class="badge badge-in_progress">In Progress</span>
                             </h:panelGroup>
                             <h:panelGroup rendered="#{t.status == 'COMPLETED'}">
-                                <span class="badge badge-completed">✅ Completed</span>
+                                <span class="badge badge-completed">Completed</span>
                             </h:panelGroup>
                         </h:column>
 
@@ -146,7 +143,7 @@
     </div>
 
     <footer class="footer">
-        AUCA Web Technology Course Project — WedPlan &copy; 2026.
+        AUCA Web Technology Course Project - WedPlan &copy; 2026.
     </footer>
 
 </h:body>

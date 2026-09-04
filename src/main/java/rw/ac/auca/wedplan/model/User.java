@@ -8,10 +8,6 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- * User entity representing wedding plan users (Bride, Groom, Family Members).
- * Enforces Validation Type #1: JSR-380 Bean Validation Annotations.
- */
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
@@ -23,25 +19,21 @@ public class User implements Serializable {
     @Column(name = "user_id")
     private Long id;
 
-    // Validation Type #1: JSR-380 Bean Validation Annotation
     @NotBlank(message = "User name is required.")
     @Size(min = 2, max = 50, message = "User name must be between 2 and 50 characters.")
     @Column(name = "name", nullable = false)
     private String name;
 
-    // Validation Type #1: JSR-380 Bean Validation Annotation
     @NotBlank(message = "Email address is required.")
     @Email(message = "Please enter a valid email address.")
     @Column(name = "email", nullable = false, unique = true)
     private String email;
 
-    // Validation Type #1: JSR-380 Bean Validation Annotation
     @NotNull(message = "User role is required.")
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
 
-    // Validation Type #1: JSR-380 Bean Validation Annotation
     @NotNull(message = "User side affiliation is required.")
     @Enumerated(EnumType.STRING)
     @Column(name = "side", nullable = false)

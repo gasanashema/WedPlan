@@ -26,21 +26,18 @@
     </properties>
 
     <dependencies>
-        <!-- JavaServer Faces (JSF) GlassFish Implementation -->
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.faces</artifactId>
             <version>${jsf.version}</version>
         </dependency>
 
-        <!-- Weld Servlet Shaded for CDI Support -->
         <dependency>
             <groupId>org.jboss.weld.servlet</groupId>
             <artifactId>weld-servlet-shaded</artifactId>
             <version>${weld.version}</version>
         </dependency>
 
-        <!-- Java Servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -48,14 +45,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Hibernate ORM Framework -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
         </dependency>
 
-        <!-- Bean Validation API & Hibernate Validator -->
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
@@ -67,7 +62,6 @@
             <version>${validator.version}</version>
         </dependency>
 
-        <!-- PostgreSQL Database Driver -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>

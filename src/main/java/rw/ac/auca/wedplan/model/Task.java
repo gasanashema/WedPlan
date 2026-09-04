@@ -9,11 +9,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-/**
- * Task entity representing wedding planning tasks.
- * Has a @ManyToOne relationship with User (FK: assigned_user_id).
- * Enforces Validation Type #1: JSR-380 Bean Validation Annotations.
- */
 @Entity
 @Table(name = "tasks")
 public class Task implements Serializable {
@@ -28,20 +23,17 @@ public class Task implements Serializable {
     @Column(name = "event_id", nullable = false)
     private int eventId = 1;
 
-    // Validation Type #1: JSR-380 Bean Validation Annotation
     @NotBlank(message = "Task title is required.")
     @Size(min = 2, max = 100, message = "Task title must be between 2 and 100 characters.")
     @Column(name = "title", nullable = false)
     private String title;
 
-    // Validation Type #1: JSR-380 Bean Validation Annotation
     @NotNull(message = "Task deadline is required.")
     @FutureOrPresent(message = "Task deadline must be today or a future date.")
     @Temporal(TemporalType.DATE)
     @Column(name = "deadline", nullable = false)
     private Date deadline;
 
-    // Validation Type #1: JSR-380 Bean Validation Annotation
     @NotNull(message = "Task status is required.")
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
@@ -50,8 +42,6 @@ public class Task implements Serializable {
     @Column(name = "category")
     private String category = "General";
 
-    // Real Foreign Key Relationship: Task ManyToOne User
-    // Validation Type #1: JSR-380 Bean Validation Annotation
     @NotNull(message = "An assigned user must be selected for the task.")
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "assigned_user_id", nullable = false)

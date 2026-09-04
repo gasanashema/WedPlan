@@ -6,9 +6,6 @@ import rw.ac.auca.wedplan.model.Task;
 
 import java.util.List;
 
-/**
- * Data Access Object for Task entity handling database transactions.
- */
 public class TaskDao {
 
     public Task save(Task task) {

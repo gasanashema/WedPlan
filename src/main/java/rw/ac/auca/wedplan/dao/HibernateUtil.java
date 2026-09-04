@@ -3,9 +3,6 @@ package rw.ac.auca.wedplan.dao;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-/**
- * Utility singleton class for managing Hibernate SessionFactory lifecycle.
- */
 public class HibernateUtil {
 
     private static SessionFactory sessionFactory;

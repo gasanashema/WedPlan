@@ -16,9 +16,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * JSF Managed Bean for Task management.
- */
 @Named("taskBean")
 @SessionScoped
 public class TaskBean implements Serializable {

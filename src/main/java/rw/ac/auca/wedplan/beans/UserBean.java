@@ -14,9 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * JSF Managed Bean for User management.
- */
 @Named("userBean")
 @SessionScoped
 public class UserBean implements Serializable {

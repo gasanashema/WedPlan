@@ -6,9 +6,6 @@ import rw.ac.auca.wedplan.model.User;
 
 import java.util.List;
 
-/**
- * Data Access Object for User entity handling database transactions.
- */
 public class UserDao {
 
     public User save(User user) {

@@ -9,10 +9,6 @@ import javax.faces.validator.ValidatorException;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- * Validation Type #3: Custom JSF Validator.
- * Ensures the wedding task deadline is within reasonable operational bounds (not more than 2 years in advance).
- */
 @FacesValidator("taskDeadlineValidator")
 public class TaskDeadlineValidator implements Validator {
 

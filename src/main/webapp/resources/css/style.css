@@ -1,7 +1,3 @@
-/* ==========================================================================
-   WedPlan Modern Web Aesthetics & CSS Design System (CSS Type #1: External)
-   ========================================================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
@@ -41,7 +37,6 @@ body {
     flex-direction: column;
 }
 
-/* Layout Navigation */
 .navbar {
     background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(12px);
@@ -87,7 +82,6 @@ body {
     background: var(--primary-light);
 }
 
-/* Main Container */
 .container {
     max-width: 1200px;
     margin: 2.5rem auto;
@@ -96,7 +90,6 @@ body {
     flex: 1;
 }
 
-/* Glassmorphism Cards */
 .card {
     background: var(--card-bg);
     backdrop-filter: blur(16px);
@@ -122,7 +115,6 @@ body {
     color: var(--text-main);
 }
 
-/* Metrics Dashboard Grid */
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -159,7 +151,6 @@ body {
     letter-spacing: 0.05em;
 }
 
-/* Custom Data Tables */
 .table-wrapper {
     overflow-x: auto;
 }
@@ -193,7 +184,6 @@ body {
     background: rgba(255, 255, 255, 0.03);
 }
 
-/* Badges */
 .badge {
     padding: 0.35rem 0.8rem;
     border-radius: 20px;
@@ -210,7 +200,6 @@ body {
 .badge-in_progress { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
 .badge-completed { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
 
-/* Forms & Inputs */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -241,7 +230,6 @@ body {
     box-shadow: 0 0 0 3px var(--primary-light);
 }
 
-/* JSF Messages */
 .message-list {
     list-style: none;
     margin-bottom: 1.5rem;
@@ -265,7 +253,6 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Buttons */
 .btn {
     padding: 0.75rem 1.5rem;
     border-radius: 10px;
@@ -315,7 +302,6 @@ body {
     border-radius: 8px;
 }
 
-/* Footer */
 .footer {
     text-align: center;
     padding: 2rem;

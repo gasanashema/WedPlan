@@ -5,15 +5,14 @@
 <h:head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>WedPlan — Task Form</title>
-    <!-- CSS Type #1: External CSS -->
+    <title>WedPlan - Task Form</title>
     <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 <h:body>
 
     <nav class="navbar">
         <h:outputLink value="index.xhtml" styleClass="brand">
-            💍 WedPlan
+            WedPlan
         </h:outputLink>
         <div class="nav-links">
             <h:outputLink value="index.xhtml" styleClass="nav-link">Dashboard</h:outputLink>
@@ -26,21 +25,19 @@
         <div class="card" style="max-width: 650px; margin: 0 auto; border-top: 4px solid #8b5cf6;">
             <div class="card-header">
                 <h1 class="card-title">
-                    <h:outputText value="#{taskBean.task.id == null ? '➕ Create Wedding Task' : '✏️ Edit Task'}"/>
+                    <h:outputText value="#{taskBean.task.id == null ? 'Create Wedding Task' : 'Edit Task'}"/>
                 </h1>
-                <h:outputLink value="taskList.xhtml" styleClass="btn btn-secondary btn-sm">← Back to Tasks</h:outputLink>
+                <h:outputLink value="taskList.xhtml" styleClass="btn btn-secondary btn-sm">&lt;- Back to Tasks</h:outputLink>
             </div>
 
-            <!-- CSS Type #3: Inline CSS example on alert box -->
             <div style="background: rgba(139, 92, 246, 0.15); border: 1px dashed #8b5cf6; padding: 0.8rem 1.2rem; border-radius: 10px; margin-bottom: 1.5rem; font-size: 0.9rem; color: #c084fc;">
-                💡 <strong>Custom Validation Active:</strong> Task deadlines are enforced by a custom JSF validator (Type #3) ensuring date is not scheduled more than 2 years out.
+                <strong>Custom Validation Active:</strong> Task deadlines are enforced by a custom JSF validator ensuring date is not scheduled more than 2 years out.
             </div>
 
             <h:messages globalOnly="false" styleClass="message-list" errorClass="msg-error" infoClass="msg-info"/>
 
             <h:form id="taskForm">
                 
-                <!-- Field: Task Title -->
                 <div class="form-group">
                     <h:outputLabel value="Task Title *" styleClass="form-label"/>
                     <h:inputText id="title" value="#{taskBean.task.title}" styleClass="form-control" required="true" requiredMessage="Task title is required.">
@@ -49,9 +46,8 @@
                     <h:message for="title" style="color: var(--danger); font-size: 0.85rem; margin-top: 0.25rem; display: block;"/>
                 </div>
 
-                <!-- Field: Assigned User (ManyToOne FK Selection Dropdown) -->
                 <div class="form-group">
-                    <h:outputLabel value="Assign To Team Member (FK Relationship) *" styleClass="form-label"/>
+                    <h:outputLabel value="Assign To Team Member *" styleClass="form-label"/>
                     <h:selectOneMenu id="assignedUser" value="#{taskBean.selectedUserId}" styleClass="form-control" required="true" requiredMessage="An assigned user must be selected.">
                         <f:selectItem itemLabel="-- Select Assigned User --" itemValue=""/>
                         <f:selectItems value="#{taskBean.allUsers}" var="u" itemValue="#{u.id}" itemLabel="#{u.name} (#{u.role.label} - #{u.side.label})"/>
@@ -59,24 +55,20 @@
                     <h:message for="assignedUser" style="color: var(--danger); font-size: 0.85rem; margin-top: 0.25rem; display: block;"/>
                 </div>
 
-                <!-- Field: Category -->
                 <div class="form-group">
                     <h:outputLabel value="Task Category" styleClass="form-label"/>
                     <h:inputText id="category" value="#{taskBean.task.category}" styleClass="form-control" placeholder="e.g. Venue, Catering, Photography, Music"/>
                 </div>
 
-                <!-- Field: Deadline with Validation Type #3 (Custom Validator) -->
                 <div class="form-group">
                     <h:outputLabel value="Deadline (YYYY-MM-DD) *" styleClass="form-label"/>
                     <h:inputText id="deadline" value="#{taskBean.task.deadline}" styleClass="form-control" required="true" requiredMessage="Deadline is required.">
                         <f:convertDateTime pattern="yyyy-MM-dd"/>
-                        <!-- Validation Type #3: Custom JSF Validator -->
                         <f:validator validatorId="taskDeadlineValidator"/>
                     </h:inputText>
                     <h:message for="deadline" style="color: var(--danger); font-size: 0.85rem; margin-top: 0.25rem; display: block;"/>
                 </div>
 
-                <!-- Field: Task Status -->
                 <div class="form-group">
                     <h:outputLabel value="Execution Status *" styleClass="form-label"/>
                     <h:selectOneMenu id="status" value="#{taskBean.task.status}" styleClass="form-control" required="true">
@@ -94,7 +86,7 @@
     </div>
 
     <footer class="footer">
-        AUCA Web Technology Course Project — WedPlan &copy; 2026.
+        AUCA Web Technology Course Project - WedPlan &copy; 2026.
     </footer>
 
 </h:body>
