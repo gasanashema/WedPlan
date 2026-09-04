@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/xml/ns/javaee"
+      xmlns:f="http://xmlns.jcp.org/xml/ns/javaee">
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>WedPlan — User Management</title>
+    <!-- CSS Type #1: External CSS -->
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+
+    <nav class="navbar">
+        <h:outputLink value="index.xhtml" styleClass="brand">
+            💍 WedPlan
+        </h:outputLink>
+        <div class="nav-links">
+            <h:outputLink value="index.xhtml" styleClass="nav-link">Dashboard</h:outputLink>
+            <h:outputLink value="userList.xhtml" styleClass="nav-link active">Users</h:outputLink>
+            <h:outputLink value="taskList.xhtml" styleClass="nav-link">Tasks</h:outputLink>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h:messages globalOnly="false" styleClass="message-list" errorClass="msg-error" infoClass="msg-info"/>
+
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">👥 Wedding Team &amp; Users</h1>
+                <h:form style="display:inline;">
+                    <h:commandButton value="+ Register New User" action="#{userBean.prepareCreate}" styleClass="btn btn-primary"/>
+                </h:form>
+            </div>
+
+            <!-- Search & Filtering Form -->
+            <h:form id="filterForm" style="margin-bottom: 1.5rem;">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <h:inputText value="#{userBean.searchQuery}" styleClass="form-control" placeholder="Search by name or email...">
+                            <f:ajax event="keyup" render=":userTableForm:userTable" delay="300"/>
+                        </h:inputText>
+                    </div>
+
+                    <div>
+                        <h:selectOneMenu value="#{userBean.roleFilter}" styleClass="form-control">
+                            <f:selectItem itemValue="ALL" itemLabel="All Roles"/>
+                            <f:selectItems value="#{userBean.availableRoles}" var="r" itemValue="#{r.name()}" itemLabel="#{r.label}"/>
+                            <f:ajax event="change" render=":userTableForm:userTable"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <div>
+                        <h:selectOneMenu value="#{userBean.sideFilter}" styleClass="form-control">
+                            <f:selectItem itemValue="ALL" itemLabel="All Sides"/>
+                            <f:selectItems value="#{userBean.availableSides}" var="s" itemValue="#{s.name()}" itemLabel="#{s.label}"/>
+                            <f:ajax event="change" render=":userTableForm:userTable"/>
+                        </h:selectOneMenu>
+                    </div>
+
+                    <h:commandButton value="Reset" action="#{userBean.resetFilters}" styleClass="btn btn-secondary btn-sm">
+                        <f:ajax render="@form :userTableForm:userTable"/>
+                    </h:commandButton>
+                </div>
+            </h:form>
+
+            <h:form id="userTableForm">
+                <div class="table-wrapper">
+                    <h:dataTable id="userTable" value="#{userBean.filteredUsers}" var="u" styleClass="custom-table">
+                        <h:column>
+                            <f:facet name="header">ID</f:facet>
+                            # #{u.id}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Full Name</f:facet>
+                            <strong>#{u.name}</strong>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Email Address</f:facet>
+                            #{u.email}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Role</f:facet>
+                            <span class="badge badge-family">#{u.role.label}</span>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Side Affiliation</f:facet>
+                            <h:panelGroup rendered="#{u.side == 'BRIDE'}">
+                                <span class="badge badge-bride">👰 Bride Side</span>
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{u.side == 'GROOM'}">
+                                <span class="badge badge-groom">🤵 Groom Side</span>
+                            </h:panelGroup>
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Actions</f:facet>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <h:commandButton value="Edit" action="#{userBean.prepareEdit(u)}" styleClass="btn btn-secondary btn-sm"/>
+                                <h:commandButton value="Delete" action="#{userBean.delete(u)}" styleClass="btn btn-danger btn-sm"
+                                                 onclick="return confirm('Are you sure you want to delete this user?');"/>
+                            </div>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </h:form>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        AUCA Web Technology Course Project — WedPlan &copy; 2026.
+    </footer>
+
+</h:body>
+</html>

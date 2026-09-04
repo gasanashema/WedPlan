@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/xml/ns/javaee"
+      xmlns:f="http://xmlns.jcp.org/xml/ns/javaee">
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>WedPlan — Wedding Management System</title>
+    <!-- CSS Type #1: External CSS -->
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+
+    <nav class="navbar">
+        <h:outputLink value="index.xhtml" styleClass="brand">
+            💍 WedPlan
+        </h:outputLink>
+        <div class="nav-links">
+            <h:outputLink value="index.xhtml" styleClass="nav-link active">Dashboard</h:outputLink>
+            <h:outputLink value="userList.xhtml" styleClass="nav-link">Users</h:outputLink>
+            <h:outputLink value="taskList.xhtml" styleClass="nav-link">Tasks</h:outputLink>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card" style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2)); border-color: rgba(236, 72, 153, 0.3);">
+            <h1 style="font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem;">Welcome to WedPlan</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">
+                Streamlined wedding task assignment, team collaboration, and schedule tracking powered by JSF 2.3 &amp; Hibernate ORM.
+            </p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="stat-value">#{userBean.totalUsersCount}</span>
+                <span class="stat-label">Registered Team Members</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">#{taskBean.totalTasksCount}</span>
+                <span class="stat-label">Total Wedding Tasks</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">#{taskBean.pendingTasksCount}</span>
+                <span class="stat-label">Pending Tasks</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-value">#{taskBean.completedTasksCount}</span>
+                <span class="stat-label">Completed Tasks</span>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">👥 User Management</h2>
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Manage wedding planners, family members, bride and groom side assignees.
+                </p>
+                <div style="display: flex; gap: 1rem;">
+                    <h:outputLink value="userList.xhtml" styleClass="btn btn-primary">View Users</h:outputLink>
+                    <h:form style="display:inline;">
+                        <h:commandButton value="Add New User" action="#{userBean.prepareCreate}" styleClass="btn btn-secondary"/>
+                    </h:form>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">📋 Task Management</h2>
+                </div>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Assign wedding preparations, set deadlines, track execution status across categories.
+                </p>
+                <div style="display: flex; gap: 1rem;">
+                    <h:outputLink value="taskList.xhtml" styleClass="btn btn-primary">View Tasks</h:outputLink>
+                    <h:form style="display:inline;">
+                        <h:commandButton value="Add New Task" action="#{taskBean.prepareCreate}" styleClass="btn btn-secondary"/>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        AUCA Web Technology Course Project — WedPlan &copy; 2026. Built with JSF 2.3 &amp; Hibernate ORM.
+    </footer>
+
+</h:body>
+</html>
