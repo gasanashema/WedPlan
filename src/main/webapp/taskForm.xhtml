@@ -77,7 +77,7 @@
                 </div>
 
                 <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                    <h:commandButton value="#{taskBean.task.id == null ? 'Create Task' : 'Update Task'}" action="#{taskBean.save}" styleClass="btn btn-primary"/>
+                    <h:commandButton value="#{taskBean.task.id == null ? 'Create Task' : 'Update Task'}" action="#{taskBean.save()}" styleClass="btn btn-primary"/>
                     <h:outputLink value="taskList.xhtml" styleClass="btn btn-secondary">Cancel</h:outputLink>
                 </div>
 

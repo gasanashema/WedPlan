@@ -59,7 +59,7 @@
                 <div style="display: flex; gap: 1rem;">
                     <h:outputLink value="userList.xhtml" styleClass="btn btn-primary">View Users</h:outputLink>
                     <h:form style="display:inline;">
-                        <h:commandButton value="Add New User" action="#{userBean.prepareCreate}" styleClass="btn btn-secondary"/>
+                        <h:commandButton value="Add New User" action="#{userBean.prepareCreate()}" styleClass="btn btn-secondary"/>
                     </h:form>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 <div style="display: flex; gap: 1rem;">
                     <h:outputLink value="taskList.xhtml" styleClass="btn btn-primary">View Tasks</h:outputLink>
                     <h:form style="display:inline;">
-                        <h:commandButton value="Add New Task" action="#{taskBean.prepareCreate}" styleClass="btn btn-secondary"/>
+                        <h:commandButton value="Add New Task" action="#{taskBean.prepareCreate()}" styleClass="btn btn-secondary"/>
                     </h:form>
                 </div>
             </div>

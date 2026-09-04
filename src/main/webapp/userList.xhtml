@@ -29,7 +29,7 @@
             <div class="card-header">
                 <h1 class="card-title">Wedding Team &amp; Users</h1>
                 <h:form style="display:inline;">
-                    <h:commandButton value="+ Register New User" action="#{userBean.prepareCreate}" styleClass="btn btn-primary"/>
+                    <h:commandButton value="+ Register New User" action="#{userBean.prepareCreate()}" styleClass="btn btn-primary"/>
                 </h:form>
             </div>
 
@@ -57,7 +57,7 @@
                         </h:selectOneMenu>
                     </div>
 
-                    <h:commandButton value="Reset" action="#{userBean.resetFilters}" styleClass="btn btn-secondary btn-sm">
+                    <h:commandButton value="Reset" action="#{userBean.resetFilters()}" styleClass="btn btn-secondary btn-sm">
                         <f:ajax render="@form :userTableForm:userTable"/>
                     </h:commandButton>
                 </div>

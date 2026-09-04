@@ -50,7 +50,7 @@
             <div class="card-header">
                 <h1 class="card-title">Wedding Tasks</h1>
                 <h:form style="display:inline;">
-                    <h:commandButton value="+ Create New Task" action="#{taskBean.prepareCreate}" styleClass="btn btn-primary"/>
+                    <h:commandButton value="+ Create New Task" action="#{taskBean.prepareCreate()}" styleClass="btn btn-primary"/>
                 </h:form>
             </div>
 
@@ -70,7 +70,7 @@
                         </h:selectOneMenu>
                     </div>
 
-                    <h:commandButton value="Reset" action="#{taskBean.resetFilters}" styleClass="btn btn-secondary btn-sm">
+                    <h:commandButton value="Reset" action="#{taskBean.resetFilters()}" styleClass="btn btn-secondary btn-sm">
                         <f:ajax render="@form :taskTableForm:taskTable"/>
                     </h:commandButton>
                 </div>
