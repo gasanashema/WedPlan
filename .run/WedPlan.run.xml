@@ -1,0 +1,40 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="WedPlan" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.121" ALTERNATE_JRE_ENABLED="true" ALTERNATE_JRE_PATH="/usr/lib/jvm/java-8-openjdk-amd64">
+    <option name="COMMON_VM_ARGUMENTS" value="" />
+    <deployment>
+      <artifact name="WedPlan:war exploded">
+        <settings>
+          <option name="CONTEXT_PATH" value="/WedPlan" />
+        </settings>
+      </artifact>
+    </deployment>
+    <server-settings>
+      <option name="HOME" value="/data/apps/apache-tomcat-9.0.121" />
+      <option name="PRECONNECT_TO_FRONTEND" value="false" />
+    </server-settings>
+    <RunnerSettings RunnerId="Debug">
+      <option name="DEBUG_PORT" value="44101" />
+    </RunnerSettings>
+    <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+      <option name="USE_ENV_VARIABLES" value="true" />
+      <STARTUP>
+        <option name="USE_DEFAULT" value="true" />
+        <option name="SCRIPT" value="" />
+        <option name="VM_PARAMETERS" value="" />
+        <option name="PROGRAM_PARAMETERS" value="" />
+      </STARTUP>
+      <SHUTDOWN>
+        <option name="USE_DEFAULT" value="true" />
+        <option name="SCRIPT" value="" />
+        <option name="VM_PARAMETERS" value="" />
+        <option name="PROGRAM_PARAMETERS" value="" />
+      </SHUTDOWN>
+    </ConfigurationWrapper>
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="WedPlan:war exploded" />
+      </option>
+    </method>
+  </configuration>
+</component>
