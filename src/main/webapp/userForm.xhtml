@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/xml/ns/javaee"
+      xmlns:f="http://xmlns.jcp.org/xml/ns/javaee">
+<h:head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>WedPlan — User Form</title>
+    <!-- CSS Type #1: External CSS -->
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+
+    <nav class="navbar">
+        <h:outputLink value="index.xhtml" styleClass="brand">
+            💍 WedPlan
+        </h:outputLink>
+        <div class="nav-links">
+            <h:outputLink value="index.xhtml" styleClass="nav-link">Dashboard</h:outputLink>
+            <h:outputLink value="userList.xhtml" styleClass="nav-link active">Users</h:outputLink>
+            <h:outputLink value="taskList.xhtml" styleClass="nav-link">Tasks</h:outputLink>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <div class="card-header">
+                <h1 class="card-title">
+                    <h:outputText value="#{userBean.user.id == null ? '➕ Register User' : '✏️ Edit User'}"/>
+                </h1>
+                <h:outputLink value="userList.xhtml" styleClass="btn btn-secondary btn-sm">← Back to Users</h:outputLink>
+            </div>
+
+            <h:messages globalOnly="false" styleClass="message-list" errorClass="msg-error" infoClass="msg-info"/>
+
+            <h:form id="userForm">
+                
+                <!-- Field: Full Name with Validation Type #2 (JSF Tag-based validateLength) -->
+                <div class="form-group">
+                    <h:outputLabel value="Full Name *" styleClass="form-label"/>
+                    <h:inputText id="name" value="#{userBean.user.name}" styleClass="form-control" required="true" requiredMessage="Name is required.">
+                        <!-- Validation Type #2: JSF Standard Tag-based Length Validator -->
+                        <f:validateLength minimum="2" maximum="50"/>
+                    </h:inputText>
+                    <h:message for="name" style="color: var(--danger); font-size: 0.85rem; margin-top: 0.25rem; display: block;"/>
+                </div>
+
+                <!-- Field: Email with Validation Type #2 (JSF Tag-based validateRegex) -->
+                <div class="form-group">
+                    <h:outputLabel value="Email Address *" styleClass="form-label"/>
+                    <h:inputText id="email" value="#{userBean.user.email}" styleClass="form-control" required="true" requiredMessage="Email is required.">
+                        <!-- Validation Type #2: JSF Standard Tag-based Regex Validator -->
+                        <f:validateRegex pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$"/>
+                    </h:inputText>
+                    <h:message for="email" style="color: var(--danger); font-size: 0.85rem; margin-top: 0.25rem; display: block;"/>
+                </div>
+
+                <!-- Field: Role Selection -->
+                <div class="form-group">
+                    <h:outputLabel value="Wedding Role *" styleClass="form-label"/>
+                    <h:selectOneMenu id="role" value="#{userBean.user.role}" styleClass="form-control" required="true" requiredMessage="Role selection is required.">
+                        <f:selectItem itemLabel="-- Select Role --" itemValue=""/>
+                        <f:selectItems value="#{userBean.availableRoles}" var="r" itemValue="#{r}" itemLabel="#{r.label}"/>
+                    </h:selectOneMenu>
+                    <h:message for="role" style="color: var(--danger); font-size: 0.85rem; margin-top: 0.25rem; display: block;"/>
+                </div>
+
+                <!-- Field: Side Affiliation Selection -->
+                <div class="form-group">
+                    <h:outputLabel value="Side Affiliation *" styleClass="form-label"/>
+                    <h:selectOneMenu id="side" value="#{userBean.user.side}" styleClass="form-control" required="true" requiredMessage="Side selection is required.">
+                        <f:selectItem itemLabel="-- Select Side --" itemValue=""/>
+                        <f:selectItems value="#{userBean.availableSides}" var="s" itemValue="#{s}" itemLabel="#{s.label}"/>
+                    </h:selectOneMenu>
+                    <h:message for="side" style="color: var(--danger); font-size: 0.85rem; margin-top: 0.25rem; display: block;"/>
+                </div>
+
+                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                    <h:commandButton value="#{userBean.user.id == null ? 'Save User' : 'Update User'}" action="#{userBean.save}" styleClass="btn btn-primary"/>
+                    <h:outputLink value="userList.xhtml" styleClass="btn btn-secondary">Cancel</h:outputLink>
+                </div>
+
+            </h:form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        AUCA Web Technology Course Project — WedPlan &copy; 2026.
+    </footer>
+
+</h:body>
+</html>
