@@ -8,7 +8,6 @@
     <artifactId>WedPlan</artifactId>
     <version>1.0.0-RELEASE</version>
     <name>WedPlan Wedding Planning Management System</name>
-    <description>AUCA Web Technology Course Project - Wedding Planning Management System using JSF and Hibernate JPA</description>
     <packaging>war</packaging>
 
     <properties>
@@ -87,17 +86,6 @@
                 <version>3.3.2</version>
                 <configuration>
                     <failOnMissingWebXml>true</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.53.v20231009</version>
-                <configuration>
-                    <webApp>
-                        <contextPath>/WedPlan</contextPath>
-                    </webApp>
-                    <scanIntervalSeconds>3</scanIntervalSeconds>
                 </configuration>
             </plugin>
         </plugins>
